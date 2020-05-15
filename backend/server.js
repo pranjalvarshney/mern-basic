@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = 4000;
@@ -50,6 +49,7 @@ todoRoutes.get('/:id',(req,res)=>{
 // })
 todoRoutes.route('/add').post(function(req, res) {
     let todo = new Todo(req.body);
+    console.log(req.body)
     todo.save()
          .then(todo => {
             res.status(200).json({'todo': 'todo added successfully'});
