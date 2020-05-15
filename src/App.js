@@ -12,7 +12,7 @@ function App() {
       <div className="App">
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             
-            <Link to="/" className="navbar-brand m-auto">MERN-Stack Todo App</Link>
+            <Link to="/" className="navbar-brand m-auto">MERN Todo App</Link>
             <div className="collpase navbar-collapse">
               <ul className="navbar-nav ml-auto">
                 <li className="navbar-item">

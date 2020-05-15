@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 class Createtodo extends Component {
     constructor(props) {
@@ -27,6 +28,15 @@ class Createtodo extends Component {
         event.preventDefault()
         console.log(`Title : ${this.state.title}`)
         console.log(`Description : ${this.state.description}`)
+        
+        const todoData = {
+            title : this.state.title,
+            description : this.state.description
+        }
+
+        axios.post('http://localhost:4000/todo/add',todoData)
+            .then(res => console.log(res.data))     
+
         this.setState ({
             title: "",
             description: "",
