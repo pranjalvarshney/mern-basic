@@ -7,37 +7,40 @@ export class Todolist extends Component {
 
     constructor(props) {
         super(props)
-    
         this.state = {
              todolist : []
         }
     }
+    
     componentDidMount(){
+        this.datafunction()
+    }
+    
+    datafunction(){
         axios.get('http://localhost:4000/todo')
             .then(res => this.setState({
                 todolist : res.data
             }))
             .catch(err => console.log(err))
         }
-    tododisplayfunction(){
-        console.log(this.state.todolist)
-        return this.state.todolist.map((todo,index)=> {
-            return <React.Fragment key={index}>
-                        <div className="col-3">    
-                            <div class="card ">
-                                <div class="card-header">
-                                    {todo.title}
-                                </div>
-                                  <div class="card-body">
-                                    <p class="card-text">{todo.description}</p>
-                                    <Link to={"/edit/"+todo._id} class="btn btn-primary">Go somewhere</Link>
+        tododisplayfunction(){
+            console.log(this.state.todolist)
+            return this.state.todolist.map((todo,index)=> {
+                return <React.Fragment key={index}>
+                            <div className="col-lg-3 col-md-4 col-sm-6 mx-auto my-3">    
+                                <div className="card ">
+                                    <div className="card-header">
+                                        {todo.title}
+                                    </div>
+                                    <div className="card-body">
+                                        <p className="card-text">{todo.description}</p>
+                                        <Link to={"/edit/"+todo._id} className="btn btn-sm w-100 btn-outline-primary">Edit</Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                   </React.Fragment>
+                    </React.Fragment>
         })
     }
-    
 
     render() {
         return (
@@ -49,17 +52,6 @@ export class Todolist extends Component {
                         {this.tododisplayfunction()}
                 </div>
             </div>
-            {/* <table className="table table-striped" style={{ marginTop: 20 }} >
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Description</th>    
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.tododisplayfunction()}
-                </tbody>
-            </table> */}
         </div>
         )
     }

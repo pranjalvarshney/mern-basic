@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <nav className="navbar navbar-expand-md navbar-dark bg-dark">
             
             <Link to="/" className="navbar-brand m-auto">MERN Todo App</Link>
             <div className="collpase navbar-collapse">

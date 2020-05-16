@@ -60,9 +60,9 @@ todoRoutes.route('/add').post(function(req, res) {
 });
 
 todoRoutes.post('/update/:id',(req,res)=>{
-    Todo.findById(req.param.id,(err,todo)=>{
+    Todo.findById(req.params.id,(err,todo)=>{
         if(!todo){
-            res.status(400).send("not found .... todo not present")
+            res.status(400).send("not found .... todo not present" + err)
         }else{
             todo.title = req.body.title
             todo.description = req.body.description

@@ -26,8 +26,8 @@ class Createtodo extends Component {
     }
     onSubmitHandle(event){
         event.preventDefault()
-        console.log(`Title : ${this.state.title}`)
-        console.log(`Description : ${this.state.description}`)
+        // console.log(`Title : ${this.state.title}`)
+        // console.log(`Description : ${this.state.description}`)
         
         const todoData = {
             title : this.state.title,
@@ -42,14 +42,16 @@ class Createtodo extends Component {
             description: "",
             completed: false
        })
+
+       this.props.history.push('/')
     }
     
     render() {
         return (
-        <div className="container w-25">
+        <div className="container w-responsive p-3">
             <h3>Create New Todo</h3>
             <form onSubmit={this.onSubmitHandle}>
-                <div className="form-group"> 
+                <div className="form-group row mx-5"> 
                     <label>Title: </label>
                     <input  type="text"
                             name="title"
@@ -58,7 +60,7 @@ class Createtodo extends Component {
                             className="form-control"
                             />
                 </div>
-                <div className="form-group">
+                <div className="form-group row mx-5" >
                     <label>Description: </label>
                     <textarea 
                             name="description"
